@@ -1,0 +1,106 @@
+Document.addEventListener(‘DOMContentLoaded’, () => {
+    Const portfolioItems = document.querySelectorAll(‘.portfolio-item’);
+    Const modal = document.getElementById(‘modal’);
+    Const modalImg = document.getElementById(‘modal-img’);
+    Const modalTitle = document.getElementById(‘modal-title’);
+    Const modalAuthor = document.getElementById(‘modal-author’);
+    Const modalDescription = document.getElementById(‘modal-description’);
+    Const modalDownload = document.getElementById(‘modal-download’);
+    Const closeModal = document.querySelector(‘.close’);
+
+    Const paymentModal = document.getElementById(‘payment-modal’);
+    Const closePaymentModal = document.querySelector(‘.close-payment’);
+
+    Const payVisaButton = document.getElementById(‘pay-visa’);
+    Const payMpesaButton = document.getElementById(‘pay-mpesa’);
+
+    Const visaForm = document.getElementById(‘visa-form’);
+    Const mpesaForm = document.getElementById(‘mpesa-form’);
+
+    Const ebooks = {
+        1: {
+            Img: ‘ebook1-cover.jpg’,
+            Title: ‘eBook Title 1’,
+            Author: ‘Author Name’,
+            Description: ‘Detailed description of eBook 1.’,
+            Download: ‘ebook1.pdf’
+        },
+        2: {
+            Img: ‘ebook2-cover.jpg’,
+            Title: ‘eBook Title 2’,
+            Author: ‘Author Name’,
+            Description: ‘Detailed description of eBook 2.’,
+            Download: ‘ebook2.pdf’
+        }
+        // Add more eBooks as needed
+    };
+
+    portfolioItems.forEach(item => {
+        item.addEventListener(‘click’, () => {
+            const id = item.getAttribute(‘data-id’);
+            const ebook = ebooks[id];
+            modalImg.src = ebook.img;
+            modalTitle.textContent = ebook.title;
+            modalAuthor.textContent = `Author: ${ebook.author}`;
+            modalDescription.textContent = ebook.description;
+            modalDownload.setAttribute(‘data-id’, id);
+            modal.style.display = ‘block’;
+        });
+    });
+
+    modalDownload.addEventListener(‘click’, () => {
+        modal.style.display = ‘none’;
+        paymentModal.style.display = ‘block’;
+    });
+
+    closeModal.addEventListener(‘click’, () => {
+        modal.style.display = ‘none’;
+    });
+
+    closePaymentModal.addEventListener(‘click’, () => {
+        paymentModal.style.display = ‘none’;
+    });
+
+    Window.addEventListener(‘click’, (event) => {
+        If (event.target == modal) {
+            Modal.style.display = ‘none’;
+        }
+        If (event.target == paymentModal) {
+            paymentModal.style.display = ‘none’;
+        }
+    });
+
+    payVisaButton.addEventListener(‘click’, () => {
+        visaForm.style.display = ‘block’;
+        mpesaForm.style.display = ‘none’;
+    });
+
+    payMpesaButton.addEventListener(‘click’, () => {
+        mpesaForm.style.display = ‘block’;
+        visaForm.style.display = ‘none’;
+    });
+
+    visaForm.addEventListener(‘submit’, (event) => {
+        event.preventDefault();
+        alert(‘Processing Visa payment…’);
+        paymentSuccess();
+    });
+
+    mpesaForm.addEventListener(‘submit’, (event) => {
+        event.preventDefault();
+        alert(‘Processing Mpesa payment…’);
+        paymentSuccess();
+    });
+
+    Function paymentSuccess() {
+        Alert(‘Payment successful! Your download will start shortly.’);
+        Const ebookId = modalDownload.getAttribute(‘data-id’);
+        Const downloadLink = document.createElement(‘a’);
+        downloadLink.href = ebooks[ebookId].download;
+        downloadLink.download = ‘’;
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+        paymentModal.style.display = ‘none’;
+    }
+});

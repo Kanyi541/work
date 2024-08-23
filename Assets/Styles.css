@@ -1,0 +1,199 @@
+Body {
+    Font-family: Arial, sans-serif;
+    Margin: 0;
+    Padding: 0;
+    Background-color: rgb(5, 66, 88);
+    Color: #333;
+}
+
+Header {
+    Background-color: rgb(153, 8, 15) 0, 34);
+    Color: white;
+    Text-align: Left;
+    Padding: 1em 0;
+}
+
+H1 {
+    Margin: 0;
+}
+
+Main {
+    Padding: 1em;
+    Display: flex;
+    Flex-wrap: wrap;
+    Justify-content: space-around;
+}
+
+.portfolio-item {
+    Background-color: rgb(27, 144, 179);
+    Border: 1px solid #ccc;
+    Border-radius: 5px;
+    Margin: 1em;
+    Padding: 1em;
+    Width: 250px;
+    Text-align: center;
+    Box-shadow: 0 0 10px rgba(0, 0, 0, 0.945);
+    Transition: transform 0.3s ease, box-shadow 0.5s ease;
+}
+.portfolio-link{
+    cursor: pointer;  
+}
+.item-deatils{
+    display: none;
+    margin-top: 3px;
+    background-color: #1b0668;
+    padding: 3px;
+    border-top: 1px solid #ccc;    
+}
+.portfolio-item:target{
+    display: block;
+}
+
+.portfolio-item:hover {
+    Transform: translateY(-20px);
+    Box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.portfolio-item img {
+    Max-width: 50%;
+    Border-radius: 5px;
+}
+
+.portfolio-item h2 {
+    Margin-top: 0;
+}
+
+Footer {
+    Background-color: rgb(153, 8, 15) 0, 34);
+    Color: white;
+    Text-align: left;
+    Padding: 1em 0;
+    Position: fixed;
+    Width: 100%;
+    Bottom: 0;
+}
+
+/* Modal Styles */
+.modal {
+    Display: none;
+    Position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    From {opacity: 0;}
+    To {opacity: 1;}
+}
+
+.modal-content {
+    Background-color: rgba(228, 216, 216, 0.774);
+    Margin: 5% auto;
+    Padding: 10px;
+    Border: 1px solid #888;
+    Width: 50%;
+    Max-width: 300px;
+    Position: relative;
+    Animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    From {transform: translateY(-50px);}
+    To {transform: translateY(0);}
+}
+
+.close {
+    Color: #aaa;
+    Float: right;
+    Font-size: 28px;
+    Font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    Color: black;
+    Text-decoration: none;
+    Cursor: pointer;
+}
+
+.modal-content img {
+    Max-width: 50%;
+    Border-radius: 10px;
+}
+
+.modal-content h2 {
+    Margin-top: 0;
+}
+
+.payment-modal {
+    Display: none;
+    Position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(248, 246, 246, 0.541);
+    animation: fadeIn 0.3s ease;
+}
+
+.payment-modal-content {
+    Background-color: rgba(21, 21, 22, 0.171);
+    Margin: 10% auto;
+    Padding: 20px;
+    Border: 1px solid #042285;
+    Width: 80%;
+    Max-width: 600px;
+    Position: relative;
+    Animation: slideIn 0.5s ease;
+}
+
+.payment-button {
+    Padding: 10px 20px;
+    Margin: 5px;
+    Background-color: #1b0668;
+    Color: white;
+    Border: none;
+    Cursor: pointer;
+    Border-radius: 5px;
+}
+
+.payment-button:hover {
+    Background-color: #004d40;
+}
+
+.payment-form {
+    Display: none;
+    Margin-top: 20px;
+}
+
+.payment-form label {
+    Display: block;
+    Margin: 10px 0 5px;
+}
+
+.payment-form input {
+    Width: 100%;
+    Padding: 8px;
+    Margin-bottom: 10px;
+    Border: 1px solid #cccccc;
+    Border-radius: 5px;
+}
+
+.payment-form .visa-mastercard-icons {
+    Display: flex;
+    Justify-content: center;
+    Margin-top: 10px;
+}
+
+.payment-form .visa-mastercard-icons img {
+    Width: 50px;
+    Margin: 0 10px;
+}

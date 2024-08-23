@@ -1,0 +1,339 @@
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 10;
+    padding: 0;
+    height: 10vh;
+    width:100vw;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position: center center;
+    color: #000000;
+}
+
+/* Header Styles */
+header {
+  
+    color: white;
+    text-align: left;
+    padding: 1em 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    margin: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      
+      
+      li {
+        display: inline;
+      }
+}
+
+.navbar a {
+    color: rgb(252, 252, 255);
+    text-decoration: none;
+    padding: 0.5em 1em;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+
+/* Main Styles */
+main {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+/*video Background Styling*/
+.video-background {
+    position:fixed;
+    top:0;
+    left:0;
+    min-width: 100%;
+    min-height: 100%;
+    width:auto;
+    height:auto;
+    z-index: -1;
+    overflow:hidden;
+
+}
+.content-wrapper{
+    position: relative;
+    z-index:1;
+}
+/* Portfolio Item Styles */
+.portfolio-item {
+    background-color: rgba(255, 255, 255, 0);
+    color:rgb(3, 1, 1);
+    border:4px solid;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.945);
+    transition: transform 0.3s ease, box-shadow 0.5s ease;
+    /*Animation application*/
+    animation: borderColorAnimation 5s linear infinite;
+
+}
+.portfolio-item p {
+    color:#ffffff;
+    font-weight:bold;
+
+}
+.portfolio-link {
+    cursor: pointer;  
+}
+
+.item-details {
+    display: none;
+    margin-top: 3px;
+    background-color: #1b0668;
+    padding: 3px;
+    border-top: 1px solid #ccc;    
+}
+
+.portfolio-item:target {
+    display: block;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-item img {
+    max-width: 50%;
+    border-radius: 5px;
+}
+
+.portfolio-item h2 {
+    margin-top: 0;
+}
+/*Defining the Animation of the border*/
+@keyframes borderColorAnimation{
+    0% {
+border-color: #FF5733;
+    }
+    25%{
+        border-color: #33ff57;
+    }
+    50%{
+        border-color: #3357ff;
+    }
+    75%{
+        border-color: #ff33a6;
+    }
+    100%{
+        border-color: #ff5733;
+    }
+}
+
+
+}
+/* Footer Styles */
+footer {
+    background-color:  rgba(165, 22, 170, 0);
+    color: rgb(0, 0, 0);
+    text-align: left;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.modal-content {
+    background-color: rgba(228, 216, 216, 0.774);
+    margin: 5% auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 50%;
+    max-width: 300px;
+    position: relative;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {transform: translateY(-50px);}
+    to {transform: translateY(0);}
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content img {
+    max-width: 50%;
+    border-radius: 10px;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.payment-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(248, 246, 246, 0.541);
+    animation: fadeIn 0.3s ease;
+}
+
+.payment-modal-content {
+    background-color: rgba(21, 21, 22, 0.171);
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #042285;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    animation: slideIn 0.5s ease;
+}
+
+.payment-button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #1b0668;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.payment-button:hover {
+    background-color: #004d40;
+}
+
+.payment-form {
+    display: none;
+    margin-top: 20px;
+}
+
+.payment-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.payment-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+.payment-form .visa-mastercard-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.payment-form .visa-mastercard-icons img {
+    width: 50px;
+    margin: 0 10px;
+}
+@keyframes backgroundColorAnimation{
+    0% {
+        background-color: #eeea05;
+    }
+    25%{
+        background-color: #042285;
+    }
+    50%{
+        background-color: #fc0404;
+    }
+    75%{
+        background-color: #00d4f0;
+    }
+    100%{
+        background-color: #a8af4c;
+    }
+}
+.download-btn {
+    background-color:#4caf50;
+    border: 4px solid;
+    border-radius: 8px ;
+    margin-bottom: 30px;
+    padding:12px  24PX;
+    color: rgb(255, 255, 255);
+    border:none;
+    cursor: pointer;
+    font-size:16px;
+    animation: backgroundColorAnimation 5s linear infinite;
+    transition: backgroundColorAnimation 5s liner infinite;
+}
+.download-btn:hover{
+    background-color: #45a049;
+    animation:none;
+}
+.downlaoad {
+    background-color:#4caf50;
+    border: 4px solid;
+    border-radius: 8px ;
+    margin-bottom: 30px;
+    padding:12px  24PX;
+    color: rgb(255, 255, 255);
+    border:none;
+    cursor: pointer;
+    font-size:16px;
+    animation: backgroundColorAnimation 5s linear infinite;
+    transition: backgroundColorAnimation 5s liner infinite;
+}
+.downlaoad{
+    background-color: #45a049;
+    animation:none;
+}
+

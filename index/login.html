@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("Assets/Images/background12.jpg");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Defining the Animation of the border */
+        @keyframes borderColorAnimation {
+            0% {
+                border-color: #FF5733;
+            }
+            25% {
+                border-color: #33ff57;
+            }
+            50% {
+                border-color: #3357ff;
+            }
+            75% {
+                border-color: #ff33a6;
+            }
+            100% {
+                border-color: #ff5733;
+            }
+        }
+
+        .container {
+            background-image: url("Assets/Images/background12.jpg");
+            padding: 20px;
+            border-radius: 8px;
+            border: 4px solid;
+            width: 350px;
+            text-align: center;
+            color: whitesmoke;
+            animation: borderColorAnimation 5s linear infinite;
+            margin-bottom: 30px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 50%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .social-login {
+            margin-top: 15px;
+        }
+
+        .social-login button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .google-login {
+            background-color: #db4437;
+        }
+
+        .facebook-login {
+            background-color: #3b5998;
+        }
+
+        .register-link {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm" action="login.php" method="post">
+            <input type="text" placeholder="Username Or email" name="username" required>
+            <input type="password" placeholder="Password" name="password" id="password" required>
+            <div class="form-group show-password">
+                <input type="checkbox" id="showPassword" class="toggle-password"> Show Password
+            </div>
+            <button type="submit">Login</button>
+            <div class="social-login">
+                <button type="button" class="google-login" id="googleLoginBtn">Login with Google</button>
+                <button type="button" class="facebook-login" id="facebookLoginBtn">Login with Facebook</button>
+            </div>
+            <div class="Forgotpassward-link">
+                <p>Forgot Password? <a href="forgotpassword.html">click Here To Reset</a></p>
+            </div>
+            <div class="register-link">
+                <p>Don't have an account? <a href="regestration.html">Register here</a></p>
+            </div>
+        </form>
+    </div>
+    <!-- Include the Google and Facebook SDKs -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script>
+        // Google Login initialization
+        function initializeGoogleLogin() {
+            gapi.load('auth2', function() {
+                gapi.auth2.init({
+                    client_id: 'my-websites-433411',
+                }).then(function(auth2) {
+                    document.getElementById('googleLoginBtn').addEventListener('click', function() {
+                        auth2.signIn().then(function(googleUser) {
+                            var id_token = googleUser.getAuthResponse().id_token;
+                            // Send ID token to server to authenticate the user
+                            console.log(id_token);
+                        });
+                    });
+                });
+            });
+        }
+        initializeGoogleLogin();
+
+        // Facebook Login initialization
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: ' 372621689226161',  // Replace with your actual App ID
+                cookie: true,
+                xfbml: true,
+                version: 'v20.0'
+            });
+
+            document.getElementById('facebookLoginBtn').addEventListener('click', function() {
+                FB.login(function(response) {
+                    if (response.authResponse) {
+                        console.log('Facebook login successful');
+                        // Send authResponse to server to authenticate the user
+                        var accessToken = response.authResponse.accessToken;
+                        
+                        // Make an API call to get user information
+                        FB.api('/me', { fields: 'id,name,email' }, function(response) {
+                            console.log('Successful login for: ' + response.name);
+                            console.log('User ID: ' + response.id);
+                            console.log('User Email: ' + response.email);
+                            // Here you can send the response data to your server to register/login the user
+                        });
+                    } else {
+                        console.log('User cancelled login or did not fully authorize.');
+                    }
+                }, {scope: 'public_profile,email'});
+            });
+        };
+
+        // Password toggle functionality
+        document.getElementById('showPassword').addEventListener('change', function() {
+            var passwordField = document.getElementById('password');
+            if (this.checked) {
+                passwordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+            }
+        });
+    </script>
+</body>
+</html>

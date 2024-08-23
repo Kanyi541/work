@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eBook Portfolio</title>
+    <link rel="stylesheet" href="Styles.css">
+    <link rel="stylesheet" href="Styles.css">
+    
+
+
+<header class="header" data-header>  
+    <div class="container">
+      <button class="hamburger" aria-label="Toggle Menu" data-nav-toggle-btn>☰ </button>
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+          <li><a href="Elscritor.html" class="navbar-link">Home.</a></li>
+          <li><a href="Aboutus.html">About.</a></li>
+          <li><a href="me.html" class="navbar-link">Contact.</a></li>
+          <li><a href ="quotes.html" class="navbar-link">Famus Quotes.</a></li>
+          <li><a href = "Poems.html" class="navbar-link">Poems.</a></li>
+          <li><a href="review.html" class ="navbar-link">Review.</a></li>
+          <li><a href="logout.php" class="navbar-link">logout</a></li>
+         
+        </ul>
+      </nav>
+    </div>
+  </header>
+    <main>
+        <section class="portfolio-item" data-id="1" data-title="ETERNAL SEDUCTION" data-author="Kanyi Wokabi" data-description="200 KSH">
+            <img src="Assets\Images\ebook1-cover.png"eBook 1 Cover">
+            <h2 > <b>ETERNAL SEDUCTION </b></h2>
+            <p>Author:Kanyi Wokabi</p>
+            <p>Erotic,Majic,Happy ending</p>
+            <button class="download-btn" data-id="1">BUY</button>
+        </section>
+        <section class="portfolio-item" data-title="MOONLIT DESIRES" data-author="Kanyi Wokabi" data-description="150 KSH">
+            <img src="Assets/Images/ebook2-cover.jpg" alt="eBook 2 Cover">
+            <h2>MOONLIT DESIRES</h2>
+            <p>Author: Kanyi Wokabi</p>
+            <p>Romantic, Erotic & Happy ending</p>
+            <a href="Assets/eBook/kanyi.pdf" download="">
+                <button class="downlaoad" >Download eBook</button>
+            </a>
+        </section>
+        
+        </section>
+        </section>
+        <section class="portfolio-item" data-id="3" data-title="eBook Title 2" data-author="Author Name 2" data-description="Short Description of eBook 2">
+            <img src="ebook2-cover.jpg" alt="eBook 2 Cover">
+            <h2></h2>
+            <p>Author: Kanyi Wokabi</p>
+            <p>Short Description of the eBook</p>
+            <button class="download-btn" data-id="3">Download eBook</button>
+        </section>
+        <section class="portfolio-item" data-id="4" data-title="eBook Title 2" data-author="Author Name 2" data-description="Short Description of eBook 2">
+            <img src="ebook2-cover.jpg" alt="eBook 2 Cover">
+            <h2>eBook Title 2</h2>
+            <p>Author: Author Name</p>
+            <p>Short Description of the eBook</p>
+            <button class="download-btn" data-id="4">Download eBook</button>
+        </section>
+        <section class="portfolio-item" data-id="5" data-title="eBook Title 2" data-author="Author Name 2" data-description="Short Description of eBook 2">
+            <img src="ebook2-cover.jpg" alt="eBook 2 Cover">
+            <h2>eBook Title 2</h2>
+            <p>Author: Author Name</p>
+            <p>Short Description of the eBook</p>
+            <button class="download-btn" data-id="5">Download </button>
+        </section>
+        <section class="portfolio-item" data-id="6" data-title="eBook Title 2" data-author="Author Name 2" data-description="Short Description of eBook 2">
+            <img src="ebook2-cover.jpg" alt="eBook 2 Cover">
+            <h2></h2>
+            <p></p>
+            <p>Short Description of the eBook</p>
+            <button class="download-btn" data-id="6">Download eBook</button>
+        </section>
+        <section class="portfolio-item" data-id="7" data-title="eBook Title 2" data-author="Author Name 2" data-description="Short Description of eBook 2">
+            <img src="ebook2-cover.jpg" alt="eBook 2 Cover">
+            <h2>eBook Title 2</h2>
+            <p>Author: Author Name</p>
+            <p>Short Description of the eBook</p>
+            <button class="download-btn" data-id="7">Download eBook</button>
+        </section>
+        <section class="portfolio-item" data-id="8" data-title="eBook Title 2" data-author="Author Name 2" data-description="Short Description of eBook 2">
+            <img src="ebook2-cover.jpg" alt="eBook 2 Cover">
+            <h2>eBook Title 2</h2>
+            <p>Author: Author Name</p>
+            <p>Short Description of the eBook</p>
+            <button class="download-btn" data-id="8">Download eBook</button>
+        </section>
+        <!-- Add more portfolio items as needed -->
+    </image>
+        
+    </main>
+    <footer>
+        <p>&copy; 2024 El Escritor</p>
+    </footer>
+
+    <!-- Modal for eBook Details -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-img" src="" alt="eBook 1 Cover">
+            <h2 id="modal-title"></h2>
+            <p id="modal-author"></p>
+            <p id="modal-description"></p>
+            <button id="modal-download" class="payment-button">Proceed to Payment</button>
+        </div>
+    </div>
+
+    <div id="payment-modal" class="payment-modal">
+        <div class="payment-modal-content">
+            <span class="close-payment">&times;</span>
+            <h2>Choose Payment Method</h2>
+            <button class="payment-button" id="pay-visa">Pay with Visa</button>
+            <button class="payment-button" id="pay-mpesa">Pay with Mpesa</button>
+
+            <!-- Visa Payment Form -->
+            <form id="visa-form" class="payment-form" style="display: none;">
+                <h3>Visa Payment</h3>
+                <label for="visa-account-number">Account Number:</label>
+                <input type="text" id="visa-account-number" required>
+                <label for="visa-expiry">Expiry Date:</label>
+                <input type="text" id="visa-expiry" required>
+                <label for="visa-cvv">CVV:</label>
+                <input type="text" id="visa-cvv" required>
+                <label for="visa-amount"></label>
+                <div class="visa-mastercard-icons">
+                    
+                    <img src="Assets/Images/mastercard.png" alt="Mastercard">
+                    <img src="Assets/Images"alt="Visa">
+                </div>
+                <button type="submit" class="payment-button">Submit</button>
+            </form>
+
+            <!-- Mpesa Payment Form -->
+            <form id="mpesa-form" class="payment-form" style="display: none;">
+                <h3>Mpesa Payment</h3>
+                <label for="mpesa-phone-number">Phone Number:</label>
+                <input type="text" id="mpesa-phone-number" required>
+                <label for="mpesa-paybill-number">Paybill Number: 123456</label>
+                <label for="mpesa-account-number">Account Number:</label>
+                <input type="text" id="mpesa-account-number" required>
+                <label for="mpesa-amount">Amount: 200 KSH</label>
+                <div class="visa-mastercard-icons">
+                    <img src="mpesa.png" alt="Mastercard">
+                </div>
+                <button type="submit" class="payment-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+
+</head>
+</body>
+</html>

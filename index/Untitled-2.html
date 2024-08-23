@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .navbar {
+      display: none; /* Hide the navbar by default */
+    }
+    .navbar.active {
+      display: block; /* Show the navbar when the 'active' class is added */
+    }
+    /* Additional styles for the hamburger button and menu */
+    .hamburger {
+      cursor: pointer;
+      font-size: 24px;
+      border: none;
+      background: none;
+    }
+  </style>
+  <title>Toggle Menu Example</title>
+</head>
+<body>
+  <header class="header" data-header>
+    <div class="container">
+      <button class="hamburger" aria-label="Toggle Menu" data-nav-toggle-btn>☰</button>
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+          <li><a href="E:\El Escritor\Untitled-1.html" class="navbar-link">Home.</a></li>
+          <li><a href="E:\El Escritor\Aboutus.html">About.</a></li>
+          <li><a href="#skills" class="navbar-link">Skills.</a></li>
+          <li><a href="#portfolio" class="navbar-link">Portfolio.</a></li>
+          <li><a href="#contact" class="navbar-link">Contact.</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <script>
+    const navToggleBtn = document.querySelector('[data-nav-toggle-btn]');
+    const navbar = document.querySelector('[data-navbar]');
+
+    // Add event listener to the button
+    navToggleBtn.addEventListener('click', () => {
+      // Toggle the 'active' class on the navbar
+      navbar.classList.toggle('active');
+    });
+
+    // Optional: Add CSS to style the active state of the navbar
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .navbar {
+        display: none;
+      }
+      .navbar.active {
+        display: block;
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
